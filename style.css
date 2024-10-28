@@ -1,0 +1,392 @@
+/* COLORS!!!!
+Gray: rgb(240,240,240)
+Blue: blue
+Black: black
+Pink: rgb(255,26,173)
+Yellow: rgb(255,250,38)
+Green: rgb(23,229,120)
+*/ 
+
+@font-face{
+    font-family: Bookwell;
+    src:url(Bookwell-Bold.woff);
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face{
+  font-family: BookwellBook;
+  src:url(Bookwell-Book.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face{
+  font-family: Tubbs;
+  src:url(TubbsDepot-Book.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face{
+  font-family: Oaky;
+  src:url(Oaky-Regular.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face{
+  font-family: Know;
+  src:url(KnowltonValues-ASCII.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+
+.mainvid {
+  display: block;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  width: 40%;
+  background-color: black;
+}
+
+.ME {
+  background-color: rgb(255,26,173);
+}
+
+body {
+  margin: 0px;
+  background-color: rgb(240,240,240);
+}
+
+.p {
+  text-align: center;
+  font-family: BookwellBook;
+  margin: 0px;
+  max-width: 65ch;
+  font-size: 20px;
+}
+
+.paragraph {
+  text-align: left;
+  color: black;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-top: 0px;
+  overflow: hidden;
+  font-family: BookwellBook; 
+}
+
+hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.button {
+  background-color: blue;
+  font-family: Tubbs, Georgia, 'Times New Roman', Times, serif;
+  border: none;
+  font-size: 24px;
+  padding: 10px 20px;
+  color: rgb(240,240,240);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:15px auto;
+  cursor: pointer;
+}
+
+.button:hover{
+background-color: rgb(255,26,173);
+}
+
+.marquee {
+	display: flex;
+	overflow: hidden;
+	gap: 3rem /* keep rem same */
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+	gap: 3rem; /* keep rem same */
+}
+
+m1 {
+  font-size: 175px;
+  font-family: Bookwell;
+}
+
+m1 :hover{
+  background-color:rgb(255,26,173);
+  color: rgb(240,240,240);
+}
+
+m2 {
+  font-size: 175px;
+  font-family: Tubbs;
+}
+
+m2 :hover{
+  /* background-color:rgb(23,229,120); */
+  background-color:black;
+  color: rgb(240,240,240);
+  /* color: black; */
+}
+
+m3 {
+  font-size: 175px;
+  font-family: Oaky;
+}
+
+m3 :hover{
+  /* background-color:blue; */
+  background-color:black;
+  color: rgb(240,240,240);
+}
+
+m4 {
+  font-size: 175px;
+  font-family: Know;
+}
+
+m4 :hover{
+  background-color:rgb(255,250,38);
+  color: black;
+}
+
+.scroll {
+  animation: scroll 35s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 3rem)); /* keep rem same */
+  }
+}
+
+.specvid {
+  video{
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  }
+}
+
+.specimag {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 80%;
+}
+
+main{
+    margin: 20px;
+}
+
+h1{
+    color: black;
+    background-color:  rgb(240,240,240);
+    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+h1:hover{
+  color: blue;
+}
+
+.navbar ul{
+    list-style-type: none;
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar a{
+    color: rgb(240,240,240);
+    text-decoration: none;
+    font-size: 24px;
+    font-family: Tubbs, Georgia, 'Times New Roman', Times, serif;
+    padding: 10px 20px;
+    display: block;
+}
+
+.navbar a:hover{
+    background-color:rgb(255,26,173);
+    color: rgb(240,240,240);
+}
+
+.navbar li{
+    display: inline-block;
+}
+
+.navbar {
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: blue;
+  color: rgb(240,240,240);
+}
+
+h3{
+    text-align: center;
+    color: black;
+    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    padding: 0px;
+    margin: 0p;
+    line-height: 0px;
+}
+
+/* p{
+    text-align: center;
+    padding: 10;
+    max-width: 65ch;
+    margin: 0 auto;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+} */
+
+a {
+  text-decoration: none;
+}
+
+  .column {
+    float: left;
+    width: 50%;
+    padding: 0px;
+  }
+
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .column2 {
+    float: left;
+    width: 33%;
+    padding: 0px;
+  }
+
+  
+  /* Clear floats after image containers */
+  .row2::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .center2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .column a:hover{
+    opacity: 30%;
+  }
+
+  .center3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  flex-direction:column;
+  margin: 20px auto;
+}
+
+.container .content{
+  font-family: Bookwell;
+  color: blue;
+}
+
+.container .size-slider{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.MWI{
+  image{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    }
+}
+
+footer {
+    text-align: center;
+    position: sticky;
+    background-color: blue;
+    color: rgb(240,240,240);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 0px;
+    overflow: hidden;
+    font-family: BookwellBook; 
+  }
+
+  @media screen and (max-width: 1100px){
+    .column, .singleimage, .column2{
+      width: 100%;
+    }
+    
+  }
+
+  div.cursors div {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    background-color: none;
+    z-index: 999;
+    pointer-events: none;
+
+  }
+
+  div.cursors div span {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    width: 300px;
+    line-height: 90px;
+
+    font-size: 100px;
+    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
+    color: blue;
+  }
+

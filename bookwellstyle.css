@@ -1,0 +1,103 @@
+mb {
+    font-size: 175px;
+    font-family: Bookwell;
+    overflow: hidden;
+  }
+  
+  .marqueeb {
+      display: flex;
+      overflow: hidden;
+      gap: 0rem /* keep rem same */
+  }
+  
+  .marqueeb-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+      gap: 0rem; /* keep rem same */
+  }
+  
+  .scrollb {
+    animation: scroll 100s linear infinite;
+  }
+  
+  @keyframes scrollb {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 0rem)); /* keep rem same */
+    }
+  }
+  
+  mbb {
+    font-size: 175px;
+    font-family: BookwellBook;
+    overflow: hidden;
+  }
+  
+  .marqueebb {
+      display: flex;
+      overflow: hidden;
+      gap: 0rem /* keep rem same */
+  }
+  
+  .marqueebb-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+      gap: 0rem; /* keep rem same */
+  }
+  
+  .scrollbb {
+    animation: scroll 100s linear infinite;
+  }
+
+  :root {
+    --font-size: 40px;
+  }
+  
+  .txtsize {
+    float: left;
+    font-family: BookwellBook;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  
+  .slide {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    font-family: Bookwell;
+    font-size: 20pt; /* Default font size */
+    /* text-wrap: nowrap; */
+  }
+  
+  .size-slider {
+    margin-top: 20px;
+    margin-left: 10px;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 25%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: rgb(255,26,173); /* Grey background */
+    outline: none;
+    opacity: 0.; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  .size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: black; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%; 
+  }
+  

@@ -9,13 +9,19 @@ Green: rgb(23,229,120)
 
 @font-face{
     font-family: Bookwell;
-    src:url(Bookwell-Bold.woff);
+    src:url(BookwellD27-Bold.woff);
     font-style: normal;
     font-weight: bold;
 }
 @font-face{
+  font-family: BookwellMedium;
+  src:url(BookwellD27-Medium.woff);
+  font-style: normal;
+  font-weight: medium;
+}
+@font-face{
   font-family: BookwellBook;
-  src:url(Bookwell-Book.woff);
+  src:url(BookwellD27-Book.woff);
   font-style: normal;
   font-weight: normal;
 }
@@ -27,7 +33,7 @@ Green: rgb(23,229,120)
 }
 @font-face{
   font-family: Oaky;
-  src:url(Oaky-Regular.woff);
+  src:url(OakyD4-Medium.woff);
   font-style: normal;
   font-weight: normal;
 }
@@ -249,8 +255,10 @@ h3{
     font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
     font-size: 50px;
     padding: 0px;
-    margin: 0p;
+    margin: 0px;
     line-height: 0px;
+
+    line-height: normal;
 }
 
 /* p{

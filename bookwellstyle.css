@@ -33,7 +33,7 @@ mb {
   
   mbb {
     font-size: 175px;
-    font-family: BookwellBook;
+    font-family: BookwellMedium;
     overflow: hidden;
   }
   
@@ -54,6 +54,31 @@ mb {
   .scrollbb {
     animation: scroll 100s linear infinite;
   }
+
+  mbbb {
+    font-size: 175px;
+    font-family: BookwellBook;
+    overflow: hidden;
+  }
+  
+  .marqueebbb {
+      display: flex;
+      overflow: hidden;
+      gap: 0rem /* keep rem same */
+  }
+  
+  .marqueebbb-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+      gap: 0rem; /* keep rem same */
+  }
+  
+  .scrollbbb {
+    animation: scroll 100s linear infinite;
+  }
+
 
   :root {
     --font-size: 40px;
@@ -100,4 +125,5 @@ mb {
     cursor: pointer; /* Cursor on hover */
     border-radius: 50%; 
   }
+  
   

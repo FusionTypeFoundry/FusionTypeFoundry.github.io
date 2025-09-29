@@ -5,41 +5,41 @@ Black: black
 Pink: rgb(255,26,173)
 Yellow: rgb(255,250,38)
 Green: rgb(23,229,120)
-*/ 
+*/
 
-@font-face{
-    font-family: Bookwell;
-    src:url(BookwellD27-Bold.woff);
-    font-style: normal;
-    font-weight: bold;
+@font-face {
+  font-family: Bookwell;
+  src: url(BookwellD27-Bold.woff);
+  font-style: normal;
+  font-weight: bold;
 }
-@font-face{
+@font-face {
   font-family: BookwellMedium;
-  src:url(BookwellD27-Medium.woff);
+  src: url(BookwellD27-Medium.woff);
   font-style: normal;
   font-weight: medium;
 }
-@font-face{
+@font-face {
   font-family: BookwellBook;
-  src:url(BookwellD27-Book.woff);
+  src: url(BookwellD27-Book.woff);
   font-style: normal;
   font-weight: normal;
 }
-@font-face{
+@font-face {
   font-family: Tubbs;
-  src:url(TubbsDepot-Book.woff);
+  src: url(TubbsDepot-Book.woff);
   font-style: normal;
   font-weight: normal;
 }
-@font-face{
+@font-face {
   font-family: Oaky;
-  src:url(OakyD4-Medium.woff);
+  src: url(OakyD4-Medium.woff);
   font-style: normal;
   font-weight: normal;
 }
-@font-face{
+@font-face {
   font-family: Know;
-  src:url(KnowltonValues-ASCII.woff);
+  src: url(KnowltonValues-ASCII.woff);
   font-style: normal;
   font-weight: normal;
 }
@@ -56,20 +56,36 @@ Green: rgb(23,229,120)
 }
 
 .ME {
-  background-color: rgb(255,26,173);
+  background-color: rgb(255, 26, 173);
 }
 
 body {
   margin: 0px;
-  background-color: rgb(240,240,240);
+  background-color: rgb(240, 240, 240);
 }
 
-.p {
-  text-align: center;
+h1 {
+  color: black;
+  /* background-color: rgb(240, 240, 240); */
+  font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+  font-size: 62px;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  padding-right: 20px;
+  line-height: 66px;
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+
+p {
+  text-align: left;
   font-family: BookwellBook;
   margin: 0px;
-  max-width: 65ch;
-  font-size: 20px;
+  max-width: 80ch;
+  font-size: 14px;
+  /* margin-right: auto;
+  margin-left: auto; */
 }
 
 .paragraph {
@@ -81,7 +97,74 @@ body {
   padding-right: 15%;
   margin-top: 0px;
   overflow: hidden;
-  font-family: BookwellBook; 
+  font-family: BookwellBook;
+}
+
+.paragraphback {
+  background-color: blue;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.split-block {
+  display: flex; /* puts children side by side */
+  width: 100%;
+  height: auto; /* full screen height (optional) */
+}
+
+.split-block .left,
+.split-block .right {
+  flex: 1; /* each side takes 50% */
+}
+
+.split-block .left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes sure image fills its half nicely */
+  display: block;
+}
+
+.split-block .left {
+  display: flex; /* optional: center text */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.split-block .right {
+  display: flex; /* optional: center text */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  padding-left: 25px;
+}
+
+/* Mobile responsive stacked layout for split-block - using tools.html pattern */
+@media screen and (max-width: 900px) {
+  .split-block {
+    flex-direction: column !important;
+  }
+  
+  .split-block .right {
+    padding: 30px !important;
+  }
+  
+  .split-block .right h1 {
+    font-size: 48px !important;
+    line-height: 52px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .split-block .right {
+    padding: 20px !important;
+  }
+  
+  .split-block .right h1 {
+    font-size: 36px !important;
+    line-height: 40px !important;
+  }
 }
 
 hr {
@@ -91,26 +174,26 @@ hr {
 
 .button {
   background-color: blue;
-  font-family: Tubbs, Georgia, 'Times New Roman', Times, serif;
+  font-family: Tubbs, Georgia, "Times New Roman", Times, serif;
   border: none;
   font-size: 24px;
   padding: 10px 20px;
-  color: rgb(240,240,240);
-  display:flex;
+  color: rgb(240, 240, 240);
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin:15px auto;
+  margin: 15px auto;
   cursor: pointer;
 }
 
-.button:hover{
-background-color: rgb(255,26,173);
+.button:hover {
+  background-color: rgb(255, 26, 173);
 }
 
 .marquee {
-	display: flex;
-	overflow: hidden;
-	gap: 3rem /* keep rem same */
+  display: flex;
+  overflow: hidden;
+  gap: 3rem; /* keep rem same */
 }
 
 .marquee-content {
@@ -118,7 +201,7 @@ background-color: rgb(255,26,173);
   display: flex;
   justify-content: space-around;
   min-width: 100%;
-	gap: 3rem; /* keep rem same */
+  gap: 3rem; /* keep rem same */
 }
 
 m1 {
@@ -126,9 +209,9 @@ m1 {
   font-family: Bookwell;
 }
 
-m1 :hover{
-  background-color:rgb(255,26,173);
-  color: rgb(240,240,240);
+m1 :hover {
+  background-color: rgb(255, 26, 173);
+  color: rgb(240, 240, 240);
 }
 
 m2 {
@@ -136,10 +219,10 @@ m2 {
   font-family: Tubbs;
 }
 
-m2 :hover{
+m2 :hover {
   /* background-color:rgb(23,229,120); */
-  background-color:black;
-  color: rgb(240,240,240);
+  background-color: black;
+  color: rgb(240, 240, 240);
   /* color: black; */
 }
 
@@ -148,10 +231,10 @@ m3 {
   font-family: Oaky;
 }
 
-m3 :hover{
+m3 :hover {
   /* background-color:blue; */
-  background-color:black;
-  color: rgb(240,240,240);
+  background-color: black;
+  color: rgb(240, 240, 240);
 }
 
 m4 {
@@ -159,8 +242,8 @@ m4 {
   font-family: Know;
 }
 
-m4 :hover{
-  background-color:rgb(255,250,38);
+m4 :hover {
+  background-color: rgb(255, 250, 38);
   color: black;
 }
 
@@ -178,10 +261,10 @@ m4 :hover{
 }
 
 .specvid {
-  video{
-  display: block;
-  margin: auto;
-  margin-top: 10px;
+  video {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
   }
 }
 
@@ -192,73 +275,63 @@ m4 :hover{
   width: 80%;
 }
 
-main{
-    margin: 20px;
+main {
+  margin: 20px;
 }
 
-h1{
-    color: black;
-    background-color:  rgb(240,240,240);
-    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-h1:hover{
+/* h1:hover {
   color: blue;
+} */
+
+.navbar ul {
+  list-style-type: none;
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  text-align: center;
 }
 
-.navbar ul{
-    list-style-type: none;
-    background-color: black;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-    text-align: center;
+.navbar a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 24px;
+  font-family: Tubbs, Georgia, "Times New Roman", Times, serif;
+  padding: 10px 20px;
+  display: block;
 }
 
-.navbar a{
-    color: rgb(240,240,240);
-    text-decoration: none;
-    font-size: 24px;
-    font-family: Tubbs, Georgia, 'Times New Roman', Times, serif;
-    padding: 10px 20px;
-    display: block;
+.navbar a:hover {
+  background-color: rgb(255, 26, 173);
+  color: rgb(240, 240, 240);
 }
 
-.navbar a:hover{
-    background-color:rgb(255,26,173);
-    color: rgb(240,240,240);
-}
-
-.navbar li{
-    display: inline-block;
+.navbar li {
+  display: inline-block;
 }
 
 .navbar {
-    position: sticky;
-    top: 0px;
-    z-index: 1000;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
 }
 
 /* Add a color to the active/current link */
 .navbar a.active {
   background-color: blue;
-  color: rgb(240,240,240);
+  color: rgb(240, 240, 240);
 }
 
-h3{
-    text-align: center;
-    color: black;
-    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
-    padding: 0px;
-    margin: 0px;
-    line-height: 0px;
+h3 {
+  text-align: center;
+  color: black;
+  font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
+  padding: 0px;
+  margin: 0px;
+  line-height: 0px;
 
-    line-height: normal;
+  line-height: normal;
 }
 
 /* p{
@@ -275,73 +348,71 @@ a {
   text-decoration: none;
 }
 
-  .column {
-    float: left;
-    width: 50%;
-    padding: 0px;
-  }
+.column {
+  float: left;
+  width: 50%;
+  padding: 0px;
+}
 
-  
-  /* Clear floats after image containers */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
-  .column2 {
-    float: left;
-    width: 33%;
-    padding: 0px;
-  }
+.column2 {
+  float: left;
+  width: 33%;
+  padding: 0px;
+}
 
-  
-  /* Clear floats after image containers */
-  .row2::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+/* Clear floats after image containers */
+.row2::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
-  .center2 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.center2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .column a:hover{
-    opacity: 30%;
-  }
+.column a:hover {
+  opacity: 30%;
+}
 
-  .center3 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.center3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.container{
+.container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: auto;
-  flex-direction:column;
+  flex-direction: column;
   margin: 20px auto;
 }
 
-.container .content{
+.container .content {
   font-family: Bookwell;
   color: blue;
 }
 
-.container .size-slider{
+.container .size-slider {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -349,15 +420,15 @@ a {
   margin-bottom: 20px;
 }
 
-.MWI{
-  image{
+.MWI {
+  image {
     display: block;
     margin: auto;
     margin-top: 10px;
-    }
+  }
 }
 
-footer {
+/* footer {
     text-align: center;
     position: sticky;
     background-color: blue;
@@ -367,34 +438,88 @@ footer {
     margin-top: 0px;
     overflow: hidden;
     font-family: BookwellBook; 
+  } */
+
+footer.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue;
+  color: rgb(240, 240, 240);
+  padding: 15px 30px;
+  margin-top: 0;
+  font-family: BookwellBook;
+}
+
+.footer-left {
+  flex: 0 0 auto;
+}
+
+.footer-logo {
+  height: 100px; /* adjust to fit your design */
+  width: auto;
+}
+
+.footer-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-right a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+footer.footer {
+  margin-bottom: 0;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  footer.footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
   }
-
-  @media screen and (max-width: 1100px){
-    .column, .singleimage, .column2{
-      width: 100%;
-    }
-    
+  .footer-right {
+    order: -1;
   }
-
-  div.cursors div {
-    position: absolute;
-    top: 300px;
-    left: 300px;
-    background-color: none;
-    z-index: 999;
-    pointer-events: none;
-
+  .footer-left {
+    order: 1;
   }
+}
 
-  div.cursors div span {
-    position: absolute;
-    top: 0px;
-    left: 40px;
-    width: 300px;
-    line-height: 90px;
-
-    font-size: 100px;
-    font-family: Bookwell, Georgia, 'Times New Roman', Times, serif;
-    color: blue;
+@media screen and (max-width: 1100px) {
+  .column,
+  .singleimage,
+  .column2 {
+    width: 100%;
   }
+}
 
+div.cursors div {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  background-color: none;
+  z-index: 999;
+  pointer-events: none;
+}
+
+div.cursors div span {
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  width: 300px;
+  line-height: 90px;
+
+  font-size: 100px;
+  font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+  color: blue;
+}

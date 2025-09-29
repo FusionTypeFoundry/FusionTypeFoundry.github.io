@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA_Compatable" content="IE=edge" />
+    <meta name="viewport" content="with=device=width" />
+    <meta name="description" content="Fusion Type Foundry creates experimental and essential typefaces, blending tradition and innovation. Explore our catalog of fonts and design tools." />
+    <title>Fusion Type Foundry</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="FAVICON.png" />
+    <style>
+      .fullscreen-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fullscreen-image {
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: screen;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .coming-soon-text {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+      }
+
+      .coming-soon-text h1 {
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 4rem;
+        color: black;
+        margin: 0;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .title-marquee {
+        font-size: 62px;
+        font-family: Bookwell;
+        background-color: rgb(255, 26, 173);
+        color: rgb(240, 240, 240);
+        padding-bottom: 10px;
+      }
+
+      /* Ensure page is still scrollable */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      /* Responsive text sizing */
+      @media (max-width: 768px) {
+        .coming-soon-text h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .coming-soon-text h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Catalog</a></li>
+        <li><a href="column.html" class="active">Column</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+    </nav>
+
+    <div class="title-marquee">
+      <a style="color: inherit" target="_self">
+        <div class="marquee">
+          <div class="marquee-content scroll">
+            <div>Fusion Type Column</div>
+            <div>Fusion Type Column</div>
+          </div>
+          <div class="marquee-content scroll">
+            <div>Fusion Type Column</div>
+            <div>Fusion Type Column</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="fullscreen-container">
+      <img src="/images2/MetalFusion.jpg" alt="Background Fusion Type Graphic" class="fullscreen-image" />
+      <div class="coming-soon-text">
+        <h1>Coming Soon</h1>
+      </div>
+    </div>
+  </body>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="/images2/FusionTypeG.svg" alt="Fusion Type Logo" class="footer-logo" />
+    </div>
+    <div class="footer-right">
+      <a href="/about.html">About</a>
+      <span>•</span>
+      <a href="mailto:fusiontype.xyz@gmail.com">fusiontype.xyz@gmail.com</a>
+    </div>
+  </footer>
+
+  <div class="cursors">
+    <div>
+      <span> </span>
+    </div>
+  </div>
+
+  <script src="cursors.js"></script>
+</html>

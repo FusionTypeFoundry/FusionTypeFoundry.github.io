@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA_Compatable" content="IE=edge" />
+    <meta name="viewport" content="with=device=width" />
+    <title>Fusion Type Foundry</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="FAVICON.png" />
+
+    <!-- ASCII Generator Styles -->
+    <style>
+      @font-face {
+        font-family: "KnowltonASCII";
+        src: url("KnowltonValues-ASCII.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: Bookwell;
+        src: url(BookwellD27-Bold.woff);
+        font-style: normal;
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: BookwellMedium;
+        src: url(BookwellD27-Medium.woff);
+        font-style: normal;
+        font-weight: medium;
+      }
+      @font-face {
+        font-family: BookwellBook;
+        src: url(BookwellD27-Book.woff);
+        font-style: normal;
+        font-weight: normal;
+      }
+
+      h1 {
+        color: black;
+        /* background-color: rgb(240, 240, 240); */
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 62px;
+        text-align: left;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        padding-right: 20px;
+        line-height: 66px;
+        /* margin-right: auto;
+  margin-left: auto; */
+      }
+
+      h2 {
+        text-align: center;
+        color: black;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 50px;
+        padding: 0px;
+        margin: 0px;
+        line-height: 52px;
+      }
+      .ascii-tool-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      .title-marquee {
+        font-size: 62px;
+        font-family: Bookwell;
+        background-color: rgb(255, 26, 173);
+        color: rgb(240, 240, 240);
+        padding-bottom: 10px;
+      }
+
+      .ascii-title-container {
+        background-color: black;
+        width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+        margin-top: 25px;
+        box-sizing: border-box;
+      }
+
+      .ascii-content-container {
+        width: 1200px;
+        margin: 0 auto;
+        background-color: rgb(240, 240, 240);
+        padding: 20px;
+        border: 3px solid black;
+        margin-bottom: 25px;
+        box-sizing: border-box;
+      }
+
+      .controls-container {
+        width: 1200px;
+        margin: 0 auto;
+        margin-top: 25px;
+        background-color: rgb(240, 240, 240);
+        padding: 20px;
+        border: 3px solid black;
+        /* margin-bottom: 25px; */
+        box-sizing: border-box;
+      }
+
+      .ascii-display-container {
+        font-family: BookwellBook, Georgia, "Times New Roman", Times, serif;
+        color: #fff;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: black;
+        padding: 20px;
+        border: 3px solid black;
+        /* margin-bottom: 25px; */
+        box-sizing: border-box;
+      }
+
+      .buttons-container {
+        width: 1200px;
+        margin: 0 auto;
+        background-color: rgb(240, 240, 240);
+        padding: 20px;
+        border: 3px solid black;
+        margin-bottom: 25px;
+        box-sizing: border-box;
+      }
+
+      .image-text-container {
+        width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        border: 3px solid black;
+      }
+
+      .image-text-split {
+        display: flex;
+        width: 100%;
+        height: auto;
+      }
+
+      .image-text-split .left,
+      .image-text-split .right {
+        flex: 1;
+      }
+
+      .image-text-split .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .image-text-split .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: blue;
+        padding: 40px;
+      }
+
+      .image-text-split .right h1 {
+        color: #fff;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 62px;
+        text-align: left;
+        margin-bottom: 30px;
+        margin-top: 0px;
+        line-height: 66px;
+      }
+
+      .image-text-split .right p {
+        text-align: left;
+        font-family: BookwellBook;
+        margin: 0px 0px 20px 0px;
+        max-width: 70ch;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      .image-text-split .right h2 {
+        color: #fff;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 36px;
+        text-align: left;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        line-height: 40px;
+      }
+
+      .image-text-split .right h3 {
+        color: #fff;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+        font-size: 24px;
+        text-align: left;
+        margin-bottom: 15px;
+        margin-top: 30px;
+        line-height: 28px;
+      }
+
+      .image-text-split .right ul {
+        margin: 0px 0px 20px 0px;
+        padding-left: 20px;
+      }
+
+      .image-text-split .right li {
+        color: #fff;
+        font-family: BookwellBook;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      .image-text-split .right strong {
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .image-text-split .right a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      .image-text-split .right a:hover {
+        color: rgb(255, 26, 173);
+      }
+
+      .skinny-image-container {
+        width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        border: 3px solid black;
+      }
+
+      .skinny-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .ascii-tool-title {
+        color: #fff;
+        margin: 0 !important;
+        padding: 1rem !important;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        width: 100%;
+      }
+
+      #resolution-control {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif !important;
+        font-size: 12px;
+      }
+
+      .slide {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        overflow: hidden;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif !important;
+        font-size: 20pt;
+      }
+
+      .size-slider {
+        margin-top: 10px;
+        margin-left: 0px;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25%;
+        height: 10px;
+        background: rgb(255, 26, 173);
+        outline: none;
+        opacity: 1;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+
+      .size-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: black;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      .size-slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: black;
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+      }
+
+      #resolution-control input {
+        width: 100%;
+      }
+
+      #tone-controls {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      #tone-controls label {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        font-size: 12px;
+        color: black;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif !important;
+      }
+
+      #tone-controls input {
+        width: 100%;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      #mode-toggle {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        font-size: 13px;
+        color: black;
+        font-family: Bookwell, Georgia, "Times New Roman", Times, serif !important;
+        align-items: center;
+      }
+
+      #mode-toggle label {
+        display: flex;
+        align-items: left;
+        gap: 0.5rem;
+      }
+
+      /* Custom Toggle Switch */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(255, 26, 173);
+        transition: 0.4s;
+        border-radius: 30px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 4px;
+        bottom: 4px;
+        background-color: black;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: rgb(255, 26, 173);
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(30px);
+      }
+
+      #ascii-container {
+        width: 40%;
+        aspect-ratio: 1/1;
+        background: #fff;
+        padding: 3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+        border: 3px solid black;
+      }
+
+      #ascii-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        white-space: pre;
+        font-family: "KnowltonASCII", monospace;
+        margin: 0;
+        padding: 0;
+        color: #000;
+      }
+
+      canvas.colorCanvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        image-rendering: pixelated;
+        display: none;
+      }
+
+      #upload-section {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      #upload-label {
+        background-color: rgb(255, 26, 173);
+        font-family: Tubbs, Georgia, "Times New Roman", Times, serif;
+        border: none;
+        font-size: 14px;
+        padding: 8px 16px;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      #upload-label:hover {
+        background-color: black;
+      }
+
+      .status {
+        font-size: 12px;
+        color: white;
+        font-family: BookwellBook;
+        padding-top: 10px;
+      }
+
+      #buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+
+      #buttons button {
+        background-color: rgb(255, 26, 173);
+        font-family: Tubbs, Georgia, "Times New Roman", Times, serif;
+        border: none;
+        font-size: 14px;
+        padding: 8px 16px;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      #buttons button:hover {
+        background-color: black;
+      }
+
+      canvas#canvas {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        #ascii-container {
+          width: 60%;
+        }
+      }
+
+      @media (max-width: 1300px) {
+        .ascii-title-container,
+        .controls-container,
+        .ascii-display-container,
+        .buttons-container,
+        .image-text-container,
+        .skinny-image-container {
+          width: 95%;
+          max-width: 1200px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .ascii-title-container,
+        .controls-container,
+        .ascii-display-container,
+        .buttons-container,
+        .image-text-container,
+        .skinny-image-container {
+          width: calc(100% - 30px);
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+
+        .image-text-split {
+          flex-direction: column;
+        }
+
+        .image-text-split .right {
+          padding: 30px;
+        }
+
+        .image-text-split .right h1 {
+          font-size: 48px;
+          line-height: 52px;
+        }
+
+        .image-text-split .right h2 {
+          font-size: 28px;
+          line-height: 32px;
+        }
+
+        .image-text-split .right h3 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        .title-marquee {
+          font-size: 48px;
+        }
+
+        #ascii-container {
+          width: 60%;
+        }
+
+        #tone-controls {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        #tone-controls label {
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .ascii-title-container,
+        .controls-container,
+        .ascii-display-container,
+        .buttons-container,
+        .image-text-container,
+        .skinny-image-container {
+          width: calc(100% - 20px);
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .image-text-split .right {
+          padding: 20px;
+        }
+
+        .image-text-split .right h1 {
+          font-size: 36px;
+          line-height: 40px;
+        }
+
+        .image-text-split .right h2 {
+          font-size: 24px;
+          line-height: 28px;
+        }
+
+        .image-text-split .right h3 {
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        .title-marquee {
+          font-size: 36px;
+        }
+
+        #ascii-container {
+          width: 90%;
+          padding: 4%;
+        }
+
+        #tone-controls label {
+          font-size: 11px;
+        }
+
+        #buttons button,
+        #upload-label {
+          font-size: 12px;
+          padding: 0.4rem 0.8rem;
+        }
+
+        #buttons {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        #mode-toggle {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Catalog</a></li>
+        <li><a href="column.html">Column</a></li>
+        <li><a href="tools.html" class="active">Tools</a></li>
+      </ul>
+    </nav>
+
+    <div class="title-marquee">
+      <a style="color: inherit" target="_self">
+        <div class="marquee">
+          <div class="marquee-content scroll">
+            <div>Fusion Type Tools</div>
+            <div>Fusion Type Tools</div>
+          </div>
+          <div class="marquee-content scroll">
+            <div>Fusion Type Tools</div>
+            <div>Fusion Type Tools</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- <hr color="black" size="3" /> -->
+
+    <!-- ASCII Generator Tool -->
+    <!-- <div class="ascii-title-container">
+      <h1 class="ascii-tool-title">ASCII Generator</h1>
+    </div> -->
+
+    <!-- Controls Box -->
+    <div class="controls-container">
+      <div id="controls">
+        <h2 style="margin-bottom: 0">ASCII Generator</h2>
+        <hr color="black" size="3" width="100%" />
+        <div id="resolution-control">
+          <label>Resolution</label>
+          <input id="resolutionSlider" class="size-slider" type="range" min="20" max="100" value="150" />
+        </div>
+
+        <div id="tone-controls">
+          <label>
+            Contrast
+            <input id="contrastSlider" class="size-slider" type="range" min="-100" max="100" value="0" />
+          </label>
+          <label>
+            Brightness
+            <input id="brightnessSlider" class="size-slider" type="range" min="-100" max="100" value="0" />
+          </label>
+        </div>
+
+        <div id="mode-toggle" style="margin-top: 20px">
+          <span>B&W</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="modeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+          <span>RGB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASCII Display Box -->
+    <div class="ascii-display-container">
+      <div id="ascii-container">
+        <pre id="ascii-box">Upload an image…</pre>
+        <canvas id="colorCanvas" class="colorCanvas"></canvas>
+      </div>
+
+      <div id="upload-section">
+        <input id="imageUpload" type="file" accept="image/*" />
+        <div class="status" id="statusText">no image loaded</div>
+      </div>
+    </div>
+
+    <!-- Buttons Box -->
+    <div class="buttons-container">
+      <div id="buttons">
+        <label id="upload-label" for="imageUpload">Upload Image</label>
+        <button id="copyBtn">Copy ASCII</button>
+        <button id="downloadBtn">Download Image</button>
+      </div>
+    </div>
+
+    <!-- Skinny Image Box -->
+    <div class="skinny-image-container">
+      <img src="images2/TigerDemo.jpg" alt="Demo of ASCII art of a tiger" />
+    </div>
+
+    <!-- Image and Text Box -->
+    <div class="image-text-container">
+      <div class="image-text-split">
+        <div class="left">
+          <img src="images2/DinoDemo.png" alt="ASCII art of a dinosaur" />
+        </div>
+        <div class="right">
+          <h2>Tips for Using the ASCII Art Generator</h2>
+          <p>Create bold, typographic artwork with our free online ASCII art generator. Upload an image and turn it into text-based graphics that highlight the creative edge of typography.</p>
+          <p>Sometimes you need to play with the settings to get the best results. Adjust the Resolution slider for detail higher values give sharper results, lower values create a blockier effect. Use Contrast and Brightness to balance tones and improve legibility. Toggle between Black &amp; White or Color mode for different styles.</p>
+
+          <h3>Export Your Work</h3>
+          <ul style="margin-bottom: 5px">
+            <li><strong>Copy ASCII</strong> to send the text version straight to your clipboard.</li>
+            <li><strong>Download Image</strong> to save your ASCII art as a text file.</li>
+          </ul>
+
+          <p>Explore how Fusion Type's Knowlton Values can push your projects to the next level below!</p>
+
+          <!-- HERE PLEASE -->
+          <a href="KV.html" style="text-decoration: none">
+            <button style="background-color: black; font-family: Tubbs, Georgia, 'Times New Roman', Times, serif; border: none; font-size: 14px; padding: 8px 16px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; text-align: center; transition: background-color 0.3s ease" onmouseover="this.style.backgroundColor='rgb(255, 26, 173)'" onmouseout="this.style.backgroundColor='black'">Get Font Here</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <!-- hidden sampler -->
+  </body>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="/images2/FusionTypeG.svg" alt="Fusion Type Logo" class="footer-logo" />
+    </div>
+    <div class="footer-right">
+      <a href="/about.html">About</a>
+      <span>•</span>
+      <a href="mailto:fusiontype.xyz@gmail.com">fusiontype.xyz@gmail.com</a>
+    </div>
+  </footer>
+
+  <div class="cursors">
+    <div>
+      <span> </span>
+    </div>
+  </div>
+
+  <script src="cursors.js"></script>
+  <script>
+    /* ASCII Generator JavaScript */
+    const BLEND_MODE = "screen";
+    // DENSITY STRING
+    const densityString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+    const LINE_HEIGHT_RATIO = 6.5 / 12;
+    const RESOLUTION_CAP = 175;
+
+    const asciiBox = document.getElementById("ascii-box");
+    const asciiContainer = document.getElementById("ascii-container");
+    const uploadInput = document.getElementById("imageUpload");
+    const resolutionSlider = document.getElementById("resolutionSlider");
+    const contrastSlider = document.getElementById("contrastSlider");
+    const brightnessSlider = document.getElementById("brightnessSlider");
+    const colorCanvas = document.getElementById("colorCanvas");
+    const colorCtx = colorCanvas.getContext("2d");
+    const sampleCanvas = document.getElementById("canvas");
+    const sctx = sampleCanvas.getContext("2d");
+    const statusText = document.getElementById("statusText");
+    const modeToggle = document.getElementById("modeToggle");
+    const copyBtn = document.getElementById("copyBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    let originalImage = null,
+      originalW = 0,
+      originalH = 0;
+
+    /* wire up */
+    [contrastSlider, resolutionSlider, brightnessSlider].forEach((s) => s.addEventListener("input", buildASCII));
+    uploadInput.addEventListener("change", handleUpload);
+    modeToggle.addEventListener("change", buildASCII);
+
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(asciiBox.textContent).then(() => alert("ASCII copied to clipboard!"));
+    });
+
+    function handleUpload(e) {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.onload = () => {
+        originalW = img.naturalWidth;
+        originalH = img.naturalHeight;
+        originalImage = img;
+        const sliderMax = Math.min(Math.max(originalW, originalH), RESOLUTION_CAP);
+        resolutionSlider.max = sliderMax;
+        resolutionSlider.value = Math.min(sliderMax, 100);
+        statusText.textContent = `loaded: ${file.name} — ${originalW}×${originalH}px (max res: ${sliderMax})`;
+        buildASCII();
+      };
+      img.onerror = () => (statusText.textContent = "failed to load image");
+      img.src = url;
+    }
+
+    function blendMultiply(base, blend) {
+      return base * blend;
+    }
+    function blendScreen(base, blend) {
+      return 1 - (1 - base) * (1 - blend);
+    }
+    function blendAdd(base, blend) {
+      return Math.min(1, base + blend);
+    }
+    function blendDarken(base, blend) {
+      return Math.min(base, blend);
+    }
+    function blendLighten(base, blend) {
+      return Math.max(base, blend);
+    }
+    function blendDifference(base, blend) {
+      return Math.abs(base - blend);
+    }
+    function blendExclusion(base, blend) {
+      return base + blend - 2 * base * blend;
+    }
+    function blendOverlay(base, blend) {
+      if (base < 0.5) return 2 * base * blend;
+      return 1 - 2 * (1 - base) * (1 - blend);
+    }
+
+    function applyBlendMode(baseVec, layerVec, mode) {
+      const res = [0, 0, 0];
+      for (let i = 0; i < 3; i++) {
+        const b = baseVec[i],
+          l = layerVec[i];
+        switch (mode) {
+          case "multiply":
+            res[i] = blendMultiply(b, l);
+            break;
+          case "screen":
+            res[i] = blendScreen(b, l);
+            break;
+          case "add":
+            res[i] = blendAdd(b, l);
+            break;
+          case "darken":
+            res[i] = blendDarken(b, l);
+            break;
+          case "lighten":
+            res[i] = blendLighten(b, l);
+            break;
+          case "difference":
+            res[i] = blendDifference(b, l);
+            break;
+          case "exclusion":
+            res[i] = blendExclusion(b, l);
+            break;
+          case "overlay":
+            res[i] = blendOverlay(b, l);
+            break;
+          default:
+            res[i] = blendScreen(b, l);
+            break;
+        }
+      }
+      return res;
+    }
+
+    async function buildASCII() {
+      if (!originalImage) {
+        asciiBox.textContent = "Upload an image…";
+        colorCanvas.style.display = "none";
+        asciiBox.style.display = "block";
+        return;
+      }
+
+      const mode = modeToggle.checked ? "color" : "bw";
+
+      const targetRes = Math.max(1, Math.min(+resolutionSlider.value || 100, +resolutionSlider.max));
+      const aspectRatio = originalW / originalH;
+      let cols, rows;
+      if (aspectRatio >= 1) {
+        cols = targetRes;
+        rows = Math.round(cols / aspectRatio);
+      } else {
+        rows = targetRes;
+        cols = Math.round(rows * aspectRatio);
+      }
+
+      sampleCanvas.width = cols;
+      sampleCanvas.height = rows;
+      sctx.drawImage(originalImage, 0, 0, cols, rows);
+      const imgData = sctx.getImageData(0, 0, cols, rows).data;
+
+      const contrast = +contrastSlider.value || 0;
+      const brightness = +brightnessSlider.value || 0;
+      const factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+
+      if (mode === "bw") {
+        colorCanvas.style.display = "none";
+        asciiBox.style.display = "block";
+        let out = "";
+        for (let y = 0; y < rows; y++) {
+          let row = "";
+          for (let x = 0; x < cols; x++) {
+            const idx = (y * cols + x) * 4;
+            let avg = (imgData[idx] + imgData[idx + 1] + imgData[idx + 2]) / 3;
+            avg = factor * (avg - 128) + 128;
+            avg += brightness;
+            avg = Math.max(0, Math.min(255, avg));
+            row += densityString[Math.floor((avg / 255) * (densityString.length - 1))];
+          }
+          out += row + "\n";
+        }
+        asciiBox.textContent = out;
+        fitFontToBoxText(cols, rows, asciiBox);
+        return;
+      }
+
+      asciiBox.style.display = "none";
+      colorCanvas.style.display = "block";
+
+      const fontFamily = '"KnowltonASCII", monospace';
+      await (document.fonts && document.fonts.load ? document.fonts.load(`12px ${fontFamily}`) : Promise.resolve());
+
+      function measureCharWidth(fontSizePx) {
+        sctx.font = `${fontSizePx}px ${fontFamily}`;
+        return sctx.measureText("W").width;
+      }
+
+      const containerSize = asciiContainer.clientWidth * 0.94;
+      let lo = 2,
+        hi = 300,
+        best = 12;
+      while (lo <= hi) {
+        const mid = Math.floor((lo + hi) / 2);
+        const cw = measureCharWidth(mid);
+        const lh = mid * LINE_HEIGHT_RATIO;
+        if (cw * cols <= containerSize && lh * rows <= containerSize) {
+          best = mid;
+          lo = mid + 1;
+        } else hi = mid - 1;
+      }
+
+      const fontSize = best;
+      const charW = measureCharWidth(fontSize);
+      const lineH = fontSize * LINE_HEIGHT_RATIO;
+
+      colorCanvas.width = Math.ceil(charW * cols);
+      colorCanvas.height = Math.ceil(lineH * rows);
+      colorCanvas.style.width = colorCanvas.width + "px";
+      colorCanvas.style.height = colorCanvas.height + "px";
+
+      colorCtx.clearRect(0, 0, colorCanvas.width, colorCanvas.height);
+      colorCtx.fillStyle = "#fff";
+      colorCtx.fillRect(0, 0, colorCanvas.width, colorCanvas.height);
+      colorCtx.textBaseline = "top";
+      colorCtx.font = `${fontSize}px ${fontFamily}`;
+
+      const startBlackModes = new Set(["screen", "add", "overlay", "difference", "exclusion", "lighten", "darken"]);
+      const baseInit = startBlackModes.has(BLEND_MODE) ? [0, 0, 0] : [1, 1, 1];
+
+      let asciiOut = "";
+
+      for (let y = 0; y < rows; y++) {
+        let rowStr = "";
+        for (let x = 0; x < cols; x++) {
+          const idx = (y * cols + x) * 4;
+          let r = imgData[idx];
+          let g = imgData[idx + 1];
+          let b = imgData[idx + 2];
+
+          r = factor * (r - 128) + 128 + brightness;
+          g = factor * (g - 128) + 128 + brightness;
+          b = factor * (b - 128) + 128 + brightness;
+          r = Math.max(0, Math.min(255, r)) / 255;
+          g = Math.max(0, Math.min(255, g)) / 255;
+          b = Math.max(0, Math.min(255, b)) / 255;
+
+          let composite = baseInit.slice();
+
+          composite = applyBlendMode(composite, [r, 0, 0], BLEND_MODE);
+          composite = applyBlendMode(composite, [0, g, 0], BLEND_MODE);
+          composite = applyBlendMode(composite, [0, 0, b], BLEND_MODE);
+
+          const finalR = Math.max(0, Math.min(1, composite[0]));
+          const finalG = Math.max(0, Math.min(1, composite[1]));
+          const finalB = Math.max(0, Math.min(1, composite[2]));
+
+          const lum = 0.2126 * finalR + 0.7152 * finalG + 0.0722 * finalB;
+          const charIndex = Math.floor(lum * (densityString.length - 1));
+          const ch = densityString.charAt(charIndex);
+
+          colorCtx.fillStyle = `rgb(${Math.round(finalR * 255)}, ${Math.round(finalG * 255)}, ${Math.round(finalB * 255)})`;
+          const px = Math.round(x * charW);
+          const py = Math.round(y * lineH);
+          colorCtx.fillText(ch, px, py);
+
+          rowStr += ch;
+        }
+        asciiOut += rowStr + "\n";
+      }
+
+      asciiBox.textContent = asciiOut;
+      fitFontToBoxText(cols, rows, asciiBox);
+
+      colorCanvas.style.display = "block";
+      asciiBox.style.display = "none";
+    }
+
+    function fitFontToBoxText(cols, rows, element) {
+      const fontFamily = '"KnowltonASCII", monospace';
+      const fontSpec = `12px ${fontFamily}`;
+      (document.fonts && document.fonts.load ? document.fonts.load(fontSpec) : Promise.resolve()).then(() => {
+        function measureCharWidth(sz) {
+          sctx.font = `${sz}px ${fontFamily}`;
+          return sctx.measureText("W").width;
+        }
+        const containerSize = asciiContainer.clientWidth * 0.94;
+        let lo = 2,
+          hi = 300,
+          best = 12;
+        while (lo <= hi) {
+          const mid = Math.floor((lo + hi) / 2);
+          const cw = measureCharWidth(mid);
+          const lh = mid * LINE_HEIGHT_RATIO;
+          if (cw * cols <= containerSize && lh * rows <= containerSize) {
+            best = mid;
+            lo = mid + 1;
+          } else hi = mid - 1;
+        }
+        const final = best;
+        const cw = measureCharWidth(final);
+        const lh = final * LINE_HEIGHT_RATIO;
+        element.style.fontSize = final + "px";
+        element.style.lineHeight = lh + "px";
+        element.style.width = Math.ceil(cw * cols) + "px";
+        element.style.height = Math.ceil(rows * lh) + "px";
+        element.style.margin = "auto";
+      });
+    }
+
+    // Function to add watermark to canvas
+    function addWatermark(canvas, ctx) {
+      return new Promise((resolve) => {
+        const watermark = new Image();
+        watermark.onload = () => {
+          const canvasWidth = canvas.width;
+          const canvasHeight = canvas.height;
+          const watermarkWidth = watermark.width;
+          const watermarkHeight = watermark.height;
+
+          // Calculate watermark size (max 20% of canvas width, maintain aspect ratio)
+          const maxWatermarkWidth = canvasWidth * 0.2;
+          const scale = Math.min(maxWatermarkWidth / watermarkWidth, 1);
+          const scaledWidth = watermarkWidth * scale;
+          const scaledHeight = watermarkHeight * scale;
+
+          // Position in bottom right with 10px margin
+          const x = canvasWidth - scaledWidth - 10;
+          const y = canvasHeight - scaledHeight - 10;
+
+          // Draw watermark
+          ctx.drawImage(watermark, x, y, scaledWidth, scaledHeight);
+          resolve();
+        };
+        watermark.onerror = () => {
+          console.log("Watermark image not found, skipping watermark");
+          resolve();
+        };
+        watermark.src = "images2/watermark.png";
+      });
+    }
+
+    downloadBtn.addEventListener("click", async () => {
+      const mode = modeToggle.checked ? "color" : "bw";
+      if (!originalImage) return alert("Upload an image first");
+
+      if (mode === "bw") {
+        const asciiText = asciiBox.textContent.split("\n");
+        const cols = asciiText[0].length;
+        const rows = asciiText.length;
+        const baseFont = 20;
+        const lineH = baseFont * LINE_HEIGHT_RATIO;
+
+        const tmp = document.createElement("canvas").getContext("2d");
+        tmp.font = `${baseFont}px "KnowltonASCII", monospace`;
+        const charW = tmp.measureText("W").width;
+
+        const rawW = charW * cols;
+        const rawH = lineH * rows;
+        const scale = 1200 / Math.max(rawW, rawH);
+        const scaledW = Math.round(rawW * scale);
+        const scaledH = Math.round(rawH * scale);
+
+        const outW = scaledW + 50;
+        const outH = scaledH + 50;
+
+        const outCanvas = document.createElement("canvas");
+        outCanvas.width = outW;
+        outCanvas.height = outH;
+        const outCtx = outCanvas.getContext("2d");
+        outCtx.fillStyle = "#fff";
+        outCtx.fillRect(0, 0, outW, outH);
+        outCtx.fillStyle = "#000";
+        outCtx.font = `${Math.round(baseFont * scale)}px "KnowltonASCII", monospace`;
+        outCtx.textBaseline = "top";
+        asciiText.forEach((line, i) => outCtx.fillText(line, 25, 25 + i * (lineH * scale)));
+
+        // Add watermark
+        await addWatermark(outCanvas, outCtx);
+
+        const link = document.createElement("a");
+        link.download = "FUSION_TYPE_ascii-art.png";
+        link.href = outCanvas.toDataURL("image/png");
+        link.click();
+        return;
+      }
+
+      const targetRes = Math.max(1, Math.min(+resolutionSlider.value || 100, +resolutionSlider.max));
+      const aspectRatio = originalW / originalH;
+      let cols, rows;
+      if (aspectRatio >= 1) {
+        cols = targetRes;
+        rows = Math.round(cols / aspectRatio);
+      } else {
+        rows = targetRes;
+        cols = Math.round(rows * aspectRatio);
+      }
+
+      const s = document.createElement("canvas");
+      s.width = cols;
+      s.height = rows;
+      const sc = s.getContext("2d");
+      sc.drawImage(originalImage, 0, 0, cols, rows);
+      const imgData = sc.getImageData(0, 0, cols, rows).data;
+
+      const contrast = +contrastSlider.value || 0;
+      const brightness = +brightnessSlider.value || 0;
+      const factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+
+      const baseFont = 20;
+      const tm = document.createElement("canvas").getContext("2d");
+      tm.font = `${baseFont}px "KnowltonASCII", monospace`;
+      const charW = tm.measureText("W").width;
+      const lineH = baseFont * LINE_HEIGHT_RATIO;
+
+      const rawW = charW * cols;
+      const rawH = lineH * rows;
+      const scale = 1200 / Math.max(rawW, rawH);
+      const finalInnerW = Math.round(rawW * scale);
+      const finalInnerH = Math.round(rawH * scale);
+
+      const outW = finalInnerW + 50;
+      const outH = finalInnerH + 50;
+
+      const outCanvas = document.createElement("canvas");
+      outCanvas.width = outW;
+      outCanvas.height = outH;
+      const outCtx = outCanvas.getContext("2d");
+      outCtx.fillStyle = "#fff";
+      outCtx.fillRect(0, 0, outW, outH);
+      outCtx.textBaseline = "top";
+      outCtx.font = `${Math.round(baseFont * scale)}px "KnowltonASCII", monospace`;
+
+      const startBlackModes = new Set(["screen", "add", "overlay", "difference", "exclusion", "lighten", "darken"]);
+      const baseInit = startBlackModes.has(BLEND_MODE) ? [0, 0, 0] : [1, 1, 1];
+
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const idx = (y * cols + x) * 4;
+          let r = imgData[idx];
+          let g = imgData[idx + 1];
+          let b = imgData[idx + 2];
+
+          r = factor * (r - 128) + 128 + brightness;
+          g = factor * (g - 128) + 128 + brightness;
+          b = factor * (b - 128) + 128 + brightness;
+          r = Math.max(0, Math.min(255, r)) / 255;
+          g = Math.max(0, Math.min(255, g)) / 255;
+          b = Math.max(0, Math.min(255, b)) / 255;
+
+          let composite = baseInit.slice();
+          composite = applyBlendMode(composite, [r, 0, 0], BLEND_MODE);
+          composite = applyBlendMode(composite, [0, g, 0], BLEND_MODE);
+          composite = applyBlendMode(composite, [0, 0, b], BLEND_MODE);
+
+          const finalR = Math.max(0, Math.min(1, composite[0]));
+          const finalG = Math.max(0, Math.min(1, composite[1]));
+          const finalB = Math.max(0, Math.min(1, composite[2]));
+
+          const lum = 0.2126 * finalR + 0.7152 * finalG + 0.0722 * finalB;
+          const charIndex = Math.floor(lum * (densityString.length - 1));
+          const ch = densityString.charAt(charIndex);
+
+          outCtx.fillStyle = `rgb(${Math.round(finalR * 255)}, ${Math.round(finalG * 255)}, ${Math.round(finalB * 255)})`;
+          const px = Math.round(25 + x * (charW * scale));
+          const py = Math.round(25 + y * (lineH * scale));
+          outCtx.fillText(ch, px, py);
+        }
+      }
+
+      // Add watermark
+      await addWatermark(outCanvas, outCtx);
+
+      const link = document.createElement("a");
+      link.download = "ascii-art-color.png";
+      link.href = outCanvas.toDataURL("image/png");
+      link.click();
+    });
+
+    buildASCII();
+  </script>
+</html>

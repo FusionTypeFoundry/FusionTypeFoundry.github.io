@@ -59,9 +59,16 @@ Green: rgb(23,229,120)
   background-color: rgb(255, 26, 173);
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0px;
   background-color: rgb(240, 240, 240);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -138,6 +145,18 @@ p {
   align-items: center;
   background-color: blue;
   padding-left: 25px;
+}
+
+/* Tablet responsive layout for split-block */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .split-block .right {
+    padding: 40px !important;
+  }
+  
+  .split-block .right h1 {
+    font-size: 56px !important;
+    line-height: 60px !important;
+  }
 }
 
 /* Mobile responsive stacked layout for split-block - using tools.html pattern */
@@ -518,6 +537,11 @@ div.cursors div span {
   left: 40px;
   width: 300px;
   line-height: 90px;
+
+  font-size: 100px;
+  font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
+  color: blue;
+}
 
   font-size: 100px;
   font-family: Bookwell, Georgia, "Times New Roman", Times, serif;
